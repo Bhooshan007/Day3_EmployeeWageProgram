@@ -1,7 +1,7 @@
 package com.bridgelabz;
 
 import java.util.Random;
-
+ 
 public class EmployeeWageProgram 
 {
 	
@@ -10,38 +10,40 @@ public class EmployeeWageProgram
 	static int wage_per_hr = 20;
 	static int full_time = 8;
 	static int part_time = 4;
+	static int working_day = 20;
 	
 	public static void main(String[] args) 
 	{
 		
-		
-		Random random = new Random();
-		int empPresent = random.nextInt(3);
-		System.out.println("Employee attendence:"+empPresent);
-		
 		int empwage = 0;
+		int totalempwage = 0;
 		
-		switch (empPresent)
-        {
-            case 1:
-            {
-                empwage = wage_per_hr * full_time;
-                System.out.println("Employee is present and the wage is : " + empwage);
-                break;
-
-            }
-            case 2:
-            {
-                empwage = wage_per_hr * part_time;
-                System.out.println("Employee is Part time present and the wage is : " + empwage);
-                break;
-            }
-            default:
-            {
-                System.out.println("Employee is absent and the wage is : " + empwage);
-                break;
-            }
-        }
-	}
+		for(int i=0; i < working_day; i++)
+		{
+			Random random = new Random();
+			int empcheck = random.nextInt(3);
+			System.out.println("Employee attendence:"+empcheck);
+			
+			switch (empcheck)
+			{
+			case 1:
+				empwage = wage_per_hr * full_time;
+				System.out.println("Employee is present and wage is:"+empwage);
+				break;
+				
+			case 2:
+				empwage = wage_per_hr * part_time;
+				System.out.println("Employee is part time present and wage is:"+empwage);
+				break;
+				
+				default:
+					System.out.println("Employee is absent and wage is:"+empwage);
+					break;
+			}
+			
+			totalempwage = empwage + totalempwage;
+			System.out.println("Total wage of employee for the month is : " + totalempwage);
+		}
+	  }   
     
 }
